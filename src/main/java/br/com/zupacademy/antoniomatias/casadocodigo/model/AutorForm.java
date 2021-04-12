@@ -17,7 +17,7 @@ public class AutorForm {
 	private String nome;
 	
 	@NotNull @NotBlank
-	@Column(length=60)
+	@Column(length=60, unique = true)
 	@Email(message = "Coloque um e-mail válido")
 	private String email;
 	

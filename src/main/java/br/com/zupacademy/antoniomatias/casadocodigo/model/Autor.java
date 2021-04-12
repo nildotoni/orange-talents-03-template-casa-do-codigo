@@ -16,11 +16,17 @@ public class Autor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
+	@Column(unique = true)
 	private String email;
 	@Column(columnDefinition ="TEXT")
 	private String descricao;
 	@NotNull
 	private LocalDateTime datacadastro = LocalDateTime.now();
+	
+	@Deprecated //indicar que somente o spring usa esse construtor default
+	public Autor() {
+		
+	}
 	
 	public Autor(String nome, String email, String descricao) {
 		this.nome = nome;

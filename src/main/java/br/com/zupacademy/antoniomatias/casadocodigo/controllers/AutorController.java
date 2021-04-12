@@ -6,6 +6,8 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,15 +20,25 @@ import br.com.zupacademy.antoniomatias.casadocodigo.repository.AutorRepository;
 
 @RestController
 @RequestMapping("/autor")
+//3
 public class AutorController {
 	
 	@Autowired
 	private AutorRepository autorRepository;
-	
+	@Autowired
+	private ProibeEmailDuplicadoAutorValidator proibeEmailDuplicadoAutorValidator;
+	@InitBinder
+	public void init(WebDataBinder binder) {
+		//1
+		binder.addValidators(proibeEmailDuplicadoAutorValidator);
+		
+	}
 	
 	//cadastra Autor
 	@PostMapping
 	public ResponseEntity<Autor> cadastroAutor(@RequestBody @Valid AutorForm autorForm, UriComponentsBuilder uriBuilder){
+		//1
+		//2
 		Autor autor = autorForm.convert(autorRepository);
 		autorRepository.save(autor);
 		URI uri = uriBuilder.path("/topicos/{id}").buildAndExpand(autor.getId()).toUri();
