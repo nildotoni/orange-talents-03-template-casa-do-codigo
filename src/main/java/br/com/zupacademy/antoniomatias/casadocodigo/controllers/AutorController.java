@@ -20,19 +20,21 @@ import br.com.zupacademy.antoniomatias.casadocodigo.repository.AutorRepository;
 
 @RestController
 @RequestMapping("/autor")
-//3
+//2
 public class AutorController {
 	
 	@Autowired
 	private AutorRepository autorRepository;
-	@Autowired
-	private ProibeEmailDuplicadoAutorValidator proibeEmailDuplicadoAutorValidator;
-	@InitBinder
-	public void init(WebDataBinder binder) {
-		//1
-		binder.addValidators(proibeEmailDuplicadoAutorValidator);
-		
-	}
+	
+	/* 
+	 * @Autowired private ProibeEmailDuplicadoAutorValidator
+	 * proibeEmailDuplicadoAutorValidator;
+	 * 
+	 * @InitBinder public void init(WebDataBinder binder) { //1
+	 * binder.addValidators(proibeEmailDuplicadoAutorValidator);
+	 * 
+	 * }
+	 */
 	
 	//cadastra Autor
 	@PostMapping

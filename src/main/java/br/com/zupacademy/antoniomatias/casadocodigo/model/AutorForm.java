@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import br.com.zupacademy.antoniomatias.casadocodigo.repository.AutorRepository;
+import br.com.zupacademy.antoniomatias.casadocodigo.validators.UniqueValue;
 
 public class AutorForm {
 	
@@ -16,6 +17,7 @@ public class AutorForm {
 	@Size(min = 2, max = 60, message = "Coloque um nome")
 	private String nome;
 	
+	@UniqueValue(domainClass = Autor.class, fieldName="email")
 	@NotNull @NotBlank
 	@Column(length=60, unique = true)
 	@Email(message = "Coloque um e-mail válido")

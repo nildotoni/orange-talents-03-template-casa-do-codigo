@@ -6,9 +6,11 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
 import br.com.zupacademy.antoniomatias.casadocodigo.repository.CategoriaRepository;
+import br.com.zupacademy.antoniomatias.casadocodigo.validators.UniqueValue;
 
 public class CategoriaForm {
-
+	
+	@UniqueValue(domainClass=Categoria.class, fieldName="nome")
 	@NotBlank(message = "O nome da categoria não pode ser branco") 
 	@NotNull(message = "O nome da categoria não pode ser nulo") 
 	@Length(min = 3, max = 30, message = "O nome da categoria deve ter até 30 caracteres")	

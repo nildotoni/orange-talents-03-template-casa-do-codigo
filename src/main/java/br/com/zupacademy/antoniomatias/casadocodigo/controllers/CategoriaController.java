@@ -21,18 +21,18 @@ import br.com.zupacademy.antoniomatias.casadocodigo.repository.CategoriaReposito
 //2
 public class CategoriaController {
 
-	@Autowired
-	private ValidaNomeDuplicado validaNomeDuplicado;
 	
 	@Autowired
 	private CategoriaRepository categoriaRepository;
 	
-	@InitBinder
-	public void init(WebDataBinder binder) {
-		//1
-		binder.addValidators(validaNomeDuplicado);
-		
-	}
+	/*
+	 * @Autowired private ValidaNomeDuplicado validaNomeDuplicado;
+	 * 
+	 * @InitBinder public void init(WebDataBinder binder) { //1
+	 * binder.addValidators(validaNomeDuplicado);
+	 * 
+	 * }
+	 */
 	
 	@PostMapping("/cadastraCategoria")
 	public ResponseEntity<Categoria> cadastraCategoria(@RequestBody @Valid CategoriaForm form, UriComponentsBuilder uriBuilder){
