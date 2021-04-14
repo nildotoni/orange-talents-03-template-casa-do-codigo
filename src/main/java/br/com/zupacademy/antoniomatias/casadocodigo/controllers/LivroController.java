@@ -1,16 +1,20 @@
 package br.com.zupacademy.antoniomatias.casadocodigo.controllers;
 
 import java.net.URI;
+import java.util.List;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+
+import br.com.zupacademy.antoniomatias.casadocodigo.model.ListaLivros;
 import br.com.zupacademy.antoniomatias.casadocodigo.model.Livro;
 import br.com.zupacademy.antoniomatias.casadocodigo.model.LivroForm;
 import br.com.zupacademy.antoniomatias.casadocodigo.repository.AutorRepository;
@@ -18,7 +22,7 @@ import br.com.zupacademy.antoniomatias.casadocodigo.repository.CategoriaReposito
 import br.com.zupacademy.antoniomatias.casadocodigo.repository.LivroRepository;
 
 @RestController
-//1
+//2
 public class LivroController {
 
 	@Autowired
@@ -42,5 +46,13 @@ public class LivroController {
 		return ResponseEntity.created(uri).body(livro);
 	}
 	
+	//1
+	@GetMapping("/livros")
+	public List<ListaLivros> listaLivros(){
+		//1
+		List<Livro> livros = (List<Livro>) livroRepository.findAll();
+				
+		return ListaLivros.converte(livros);
+	}
 	
 }
