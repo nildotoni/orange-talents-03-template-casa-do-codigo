@@ -1,6 +1,7 @@
 package br.com.zupacademy.antoniomatias.casadocodigo.model;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,9 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-
+//2
 @Entity
 public class Autor {
+	//1
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -29,11 +31,15 @@ public class Autor {
 	}
 	
 	public Autor(String nome, String email, String descricao) {
+		//1
 		this.nome = nome;
 		this.email = email;
 		this.descricao = descricao;
 	}
 	
+	public Autor(Autor autor) {
+	}
+
 	public Long getId() {
 		return id;
 	}

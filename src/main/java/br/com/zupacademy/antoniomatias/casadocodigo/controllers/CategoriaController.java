@@ -18,14 +18,14 @@ import br.com.zupacademy.antoniomatias.casadocodigo.model.CategoriaForm;
 import br.com.zupacademy.antoniomatias.casadocodigo.repository.CategoriaRepository;
 
 @RestController
-//2
+//1
 public class CategoriaController {
 
 	
 	@Autowired
 	private CategoriaRepository categoriaRepository;
 	
-	/*
+	/* Para Consulta
 	 * @Autowired private ValidaNomeDuplicado validaNomeDuplicado;
 	 * 
 	 * @InitBinder public void init(WebDataBinder binder) { //1

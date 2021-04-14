@@ -1,5 +1,6 @@
 package br.com.zupacademy.antoniomatias.casadocodigo.model;
 
+
 import javax.persistence.Column;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -9,15 +10,16 @@ import javax.validation.constraints.Size;
 import br.com.zupacademy.antoniomatias.casadocodigo.repository.AutorRepository;
 import br.com.zupacademy.antoniomatias.casadocodigo.validators.UniqueValue;
 
+//2
 public class AutorForm {
-	
+	//1
 	//Atributos
-	@NotNull @NotBlank
+	@NotNull //@NotBlank
 	@Column(length=60)
 	@Size(min = 2, max = 60, message = "Coloque um nome")
 	private String nome;
 	
-	@UniqueValue(domainClass = Autor.class, fieldName="email")
+	@UniqueValue(domainClass = Autor.class, fieldName="email",message="Email já cadastrado")
 	@NotNull @NotBlank
 	@Column(length=60, unique = true)
 	@Email(message = "Coloque um e-mail válido")
@@ -30,6 +32,7 @@ public class AutorForm {
 	
 	//Métodos
 	public Autor convert(AutorRepository autorRepository) {
+		//1
 		Autor autor = new Autor(nome, email, descricao);
 		return autor;
 	}

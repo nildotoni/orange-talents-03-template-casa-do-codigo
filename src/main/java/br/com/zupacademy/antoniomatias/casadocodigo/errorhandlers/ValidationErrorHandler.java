@@ -12,7 +12,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
+//1
 @RestControllerAdvice
 public class ValidationErrorHandler {
 
@@ -23,6 +23,7 @@ public class ValidationErrorHandler {
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ValidationErrorsOutputDto handleValidationError(MethodArgumentNotValidException exception) {
+		//1
 		List<ObjectError> globalErrors = exception.getBindingResult().getGlobalErrors();
 		List<FieldError> fieldErrors = exception.getBindingResult().getFieldErrors();
 		return buildValidationErrors(globalErrors,fieldErrors);

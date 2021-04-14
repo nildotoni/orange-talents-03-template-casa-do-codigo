@@ -8,7 +8,7 @@ import static java.lang.annotation.ElementType.FIELD; //precisei por na mão
 import java.lang.annotation.*;
 import javax.validation.Constraint;
 import javax.validation.Payload;
-
+//1
 @Documented
 @Constraint(validatedBy = {UniqueValueValidator.class})
 @Target({FIELD})
