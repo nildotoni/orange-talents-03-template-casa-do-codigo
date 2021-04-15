@@ -7,13 +7,15 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-
+import br.com.zupacademy.antoniomatias.casadocodigo.model.DetalhaLivro;
 import br.com.zupacademy.antoniomatias.casadocodigo.model.ListaLivros;
 import br.com.zupacademy.antoniomatias.casadocodigo.model.Livro;
 import br.com.zupacademy.antoniomatias.casadocodigo.model.LivroForm;
@@ -55,4 +57,15 @@ public class LivroController {
 		return ListaLivros.converte(livros);
 	}
 	
+	//1
+	@GetMapping("/livros/{id}")
+	
+	public ResponseEntity<DetalhaLivro> detalhaLivro(@PathVariable Long id){
+		//1
+		DetalhaLivro livro = DetalhaLivro.converte(livroRepository, autorRepository, id);
+		if (livro != null) {
+		return ResponseEntity.ok(livro);
+	}
+		return ResponseEntity.notFound().build();
+	}
 }

@@ -11,5 +11,5 @@ import br.com.zupacademy.antoniomatias.casadocodigo.model.Autor;
 public interface AutorRepository extends CrudRepository<Autor, Long>{
 
 	Optional<Autor> findByEmail(String email);
-	Optional<Autor> findById(Long id);
+	Optional<Autor> findById(Autor autor);
 }
