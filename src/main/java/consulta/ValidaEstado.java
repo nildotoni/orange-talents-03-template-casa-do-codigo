@@ -1,4 +1,4 @@
-package br.com.zupacademy.antoniomatias.casadocodigo.validators;
+package consulta;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
@@ -9,18 +9,17 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 //1
 @Documented
-@Constraint(validatedBy = {UniqueValueValidator.class})
+@Constraint(validatedBy = {ValidaEstadoValidator.class})
 @Target({FIELD})
 @Retention(RUNTIME)
-public @interface UniqueValue {
+public @interface ValidaEstado {
 
-	String message() default "{br.com.zupacademy.antoniomatias.casadocodigo.validators.UniqueValue}";
+	String message() default "{br.com.zupacademy.antoniomatias.casadocodigo.validators.ValidaEstado}";
 	
 	Class<?>[] groups() default{};
 	
 	Class<? extends Payload>[] payload() default{ };
 	
-	String fieldName();
-	
-	Class<?> domainClass();
+
+	String paisId();
 }

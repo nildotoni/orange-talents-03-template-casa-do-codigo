@@ -40,6 +40,10 @@ public class Estado {
 	public Estado() {
 	
 	}
+
+	public Estado(Estado e) {
+		// TODO Auto-generated constructor stub
+	}
 	
 	
 }

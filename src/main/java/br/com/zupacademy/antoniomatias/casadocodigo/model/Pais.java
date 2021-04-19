@@ -39,5 +39,10 @@ public class Pais {
 	}
 
 
+	public Pais(Pais pais) {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	
 }

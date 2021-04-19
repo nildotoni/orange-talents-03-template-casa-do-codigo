@@ -1,20 +1,23 @@
 package br.com.zupacademy.antoniomatias.casadocodigo.validators;
 
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
-import static java.lang.annotation.RetentionPolicy.RUNTIME; //precisei por na mão
 import java.lang.annotation.Target;
-import static java.lang.annotation.ElementType.FIELD; //precisei por na mão
+
 import javax.validation.Constraint;
 import javax.validation.Payload;
+
 //1
 @Documented
-@Constraint(validatedBy = {UniqueValueValidator.class})
+@Constraint(validatedBy = {ValidaPaisValidator.class})
 @Target({FIELD})
 @Retention(RUNTIME)
-public @interface UniqueValue {
-
-	String message() default "{br.com.zupacademy.antoniomatias.casadocodigo.validators.UniqueValue}";
+public @interface ValidaPais {
+	
+	String message() default "{br.com.zupacademy.antoniomatias.casadocodigo.validators.ValidaDoc}";
 	
 	Class<?>[] groups() default{};
 	
